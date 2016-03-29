@@ -1,5 +1,6 @@
 package dominio;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Venta {
@@ -29,6 +30,11 @@ public class Venta {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
+	
+	public BigDecimal calcularGananciaVenta(){
+		return this.prenda.calcularPrecio().multiply(new BigDecimal(this.cantidad));
+	}
+	
 	
 	
 	
