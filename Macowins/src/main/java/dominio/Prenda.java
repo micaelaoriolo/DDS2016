@@ -6,10 +6,13 @@ public abstract class Prenda {
 	private BigDecimal precioBase;
 	private BigDecimal valorFijoDelNegocio;
 	private Boolean esImportada;
-	private Float tasaImportacion;
+	private Float tasaImportacion; //por qué no es variable de instnacia: si la quiero modifcar en un
+									//futuro, sólo modifico la tasa de las instancias por crearse, y no se
+									//todas las que ya se crearon también.
 	
 	public Prenda(){
 		super();
+		this.tasaImportacion = 0.3F;
 	}
 
 	public BigDecimal getPrecioBase() {
@@ -34,14 +37,6 @@ public abstract class Prenda {
 
 	public void setEsImportada(Boolean esImportada) {
 		this.esImportada = esImportada;
-	}
-	
-	public Float getTasaImportacion(){
-		return this.tasaImportacion;
-	}
-	
-	public void setTasaImportacion(Float tasa){
-		this.tasaImportacion = tasa;
 	}
 
 	public BigDecimal calcularPrecio(){
