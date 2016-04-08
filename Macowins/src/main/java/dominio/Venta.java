@@ -31,8 +31,8 @@ public class Venta {
 		this.cantidad = cantidad;
 	}
 	
-	public BigDecimal calcularGananciaVenta(Negocio neg){
-		return this.prenda.calcularPrecio(neg).multiply(new BigDecimal(this.cantidad));
+	public BigDecimal calcularGananciaVenta(BigDecimal valorFijo){
+		return this.prenda.calcularPrecio(valorFijo).multiply(new BigDecimal(this.cantidad));
 	}
 	
 	

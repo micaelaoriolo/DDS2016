@@ -12,9 +12,9 @@ public class NegocioTest {
 	@Test
 	public void testGuardarVentasDia() {
 		Negocio macowins = new Negocio(new BigDecimal(50));
-		Pantalon pant = new Pantalon();
+		Prenda pant = new Prenda(new Pantalon());
 		pant.setEsImportada(false);
-		Camisa cam = new Camisa();
+		Prenda cam = new Prenda(new Camisa());
 		cam.setEsImportada(true);
 		macowins.vender(cam, 2, LocalDate.now());
 		macowins.vender(pant, 1, LocalDate.now());
@@ -24,13 +24,13 @@ public class NegocioTest {
 	@Test
 	public void testMontoVentasDia() {
 		Negocio macowins = new Negocio(new BigDecimal(50));
-		Pantalon pant = new Pantalon();
+		Prenda pant = new Prenda(new Pantalon());
 		pant.setEsImportada(false);
-		Camisa cam = new Camisa();
+		Prenda cam = new Prenda(new Camisa());
 		cam.setEsImportada(true);
 		macowins.vender(cam, 1, LocalDate.now());
 		macowins.vender(pant, 1, LocalDate.now());
-		assertEquals(new BigDecimal(625), macowins.calcularGanancias(LocalDate.now()));
+		assertEquals(new BigDecimal(625).doubleValue(), macowins.calcularGanancias(LocalDate.now()).doubleValue(), 0.002);
 	}
 
 }

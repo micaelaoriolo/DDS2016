@@ -2,11 +2,19 @@ package dominio;
 
 import java.math.BigDecimal;
 
-public class Pantalon extends Prenda{
+public class Pantalon implements Tipo{
+	private BigDecimal precioBase;
 	
+	public void setPrecioBase(BigDecimal precioBase) {
+		this.precioBase = precioBase;
+	}
+	public BigDecimal getPrecioBase() {
+		return this.precioBase;		
+	}
+
+
 	public Pantalon(){
-		super();
-		super.setPrecioBase(new BigDecimal(250));
+		this.setPrecioBase(new BigDecimal(250));
 	}
 
 }

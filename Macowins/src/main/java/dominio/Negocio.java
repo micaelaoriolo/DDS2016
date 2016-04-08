@@ -49,7 +49,7 @@ public class Negocio {
 	
 	public BigDecimal calcularGanancias(LocalDate fecha){
 	return this.ventasDeLaFecha(fecha).stream()
-			.map(v -> v.calcularGananciaVenta(this))
+			.map(v -> v.calcularGananciaVenta(this.valorFijo))
 			.reduce(new BigDecimal(0), (p1, p2) -> p1.add(p2));}
 		/*BigDecimal resultado = new BigDecimal(0);
 		for(Venta aux : (Iterable<Venta>)()->ventas.stream().filter(x->x.getFecha().equals(fecha)).iterator())

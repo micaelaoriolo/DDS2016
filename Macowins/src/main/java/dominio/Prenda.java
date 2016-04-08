@@ -1,14 +1,27 @@
 package dominio;
 import java.math.BigDecimal;
 
-public abstract class Prenda {
+public class Prenda {
 	
 	private BigDecimal precioBase;
-/*	private BigDecimal valorFijoDelNegocio;*/
 	private Boolean esImportada;
+	private Tipo tipo;
 	
-	public Prenda(){
-		super();
+	
+	public Prenda(Tipo tipo){
+		this.setTipo(tipo);
+		
+	}
+	
+	
+	
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 
 	public BigDecimal getPrecioBase() {
@@ -19,29 +32,27 @@ public abstract class Prenda {
 		this.precioBase = precioBase;
 	}
 	
-	/*public BigDecimal getValorFijoDelNegocio() {     
-		return valorFijoDelNegocio;									
-	}
-
-	public void setValorFijoDelNegocio(BigDecimal valorFijoDelNegocio) {		la prenda ya no tiene responsabilidad de asignarle el valor al negocio
-		this.valorFijoDelNegocio = valorFijoDelNegocio;
-	}*/
 
 	public Boolean getEsImportada() {
 		return esImportada;
 	}
 
-	public void setEsImportada(Boolean esImportada) {
-		this.esImportada = esImportada;
-	}
+
 	
 	private BigDecimal tasaImportacion(){
-		return (this.esImportada ? new BigDecimal(1.3) : new BigDecimal(1));
+		return (this.getEsImportada() ? new BigDecimal(1.3) : new BigDecimal(1));
 	}
 
-	public BigDecimal calcularPrecio(Negocio neg){
-		return (this.precioBase.add(neg.getValorFijo())).multiply(this.tasaImportacion());
+	public BigDecimal calcularPrecio(BigDecimal valorFijo){
+		return (this.tipo.getPrecioBase().add(valorFijo)).multiply(this.tasaImportacion());
 	}
+
+	public void setEsImportada(boolean b) {
+		this.esImportada=b;
+		
+	}
+
+
 
 
 }

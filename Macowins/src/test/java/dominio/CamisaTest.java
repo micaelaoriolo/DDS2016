@@ -9,6 +9,8 @@ import dominio.Camisa;
 
 public class CamisaTest {
 	
+	
+	
 	@Test
 	public void precioCamisa() {
 		Camisa camisa = new Camisa();
@@ -18,9 +20,9 @@ public class CamisaTest {
 	@Test
 	public void precioFinalCamisa(){
 		Negocio negocio = new Negocio(new BigDecimal(100));
-		Camisa cam = new Camisa();
-		cam.setEsImportada(true);
-		Assert.assertEquals(new BigDecimal(390).doubleValue(),cam.calcularPrecio(negocio).doubleValue(), 0.002);
+		Prenda camisa = new Prenda(new Camisa());
+		camisa.setEsImportada(true);
+		Assert.assertEquals(new BigDecimal(390).doubleValue(),camisa.calcularPrecio(negocio.getValorFijo()).doubleValue(), 0.002);
 		
 		
 	}
