@@ -20,7 +20,7 @@ public class CamisaTest {
 		Negocio negocio = new Negocio(new BigDecimal(100));
 		Camisa cam = new Camisa();
 		cam.setEsImportada(true);
-		Assert.assertEquals(new BigDecimal(390),cam.calcularPrecio(negocio));
+		Assert.assertEquals(new BigDecimal(390).doubleValue(),cam.calcularPrecio(negocio).doubleValue(), 0.002);
 		
 		
 	}
