@@ -14,7 +14,5 @@ public class Camisa implements Tipo {
 	public Camisa() {
 		this.precioBase = new BigDecimal(200);
 	}
-	
-	
 
 }
